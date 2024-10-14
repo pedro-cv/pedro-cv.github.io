@@ -1,0 +1,23 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+const EXPERIENCE = [
+  {
+    date: "Obctubre 2024",
+    title: "Principal Frontend Engineer",
+    company: "Jex",
+    description:
+      "Desarrollo front-end de la plataforma principal, y encargado del desarrollo de productos outsourcing para clientes de la empresa, así como de la formación de nuevos empleados. Mejora en el desarrollo de los productos en escalabilidad y seguridad.",
+    link: "https://jex.global",
+  },
+];
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
