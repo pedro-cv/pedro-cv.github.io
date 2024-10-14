@@ -1,6 +1,9 @@
 ---
 import LinkInline from "./LinkInline.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 interface Props {
   title: string;
   company: string;
@@ -37,7 +40,7 @@ const { title, company, description, link, date } = Astro.props;
     {
       link && (
         <LinkInline href={link} target="_blank">
-          Saber más{" "}
+          {t("components.experienceitem.view")}{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="w-5 icon icon-tabler icon-tabler-chevron-right"

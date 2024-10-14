@@ -5,6 +5,15 @@ import LinkedInIcon from "@/components/icons/LinkedIn.astro";
 import MailIcon from "@/components/icons/Mail.astro";
 import SocialPill from "@/components/SocialPill.astro";
 import GitHub from "./icons/GitHub.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const texts = [t("hero.title1"), t("hero.title2"), t("hero.title3")];
+
+const title = "Bienvenido a mi página de Astro";
+const description = "Esta es una descripción que se usará más adelante.";
 ---
 
 <div class="max-w-2xl">
@@ -24,7 +33,9 @@ import GitHub from "./icons/GitHub.astro";
       rel="noopener"
       class="flex items-center transition md:justify-center md:hover:scale-105"
     >
-      <Badge>Disponible para trabajar</Badge>
+      <Badge>
+        {t("hero.badge")}
+      </Badge>
     </a>
   </div>
   <div class="flex min-h-10">
@@ -38,15 +49,12 @@ import GitHub from "./icons/GitHub.astro";
   </div>
   <p
     class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-blue-500 [&>strong]:text-blue-500 [&>strong]:font-semibold dark:text-gray-300"
-  >
-    +1 año de experiencia.
-    <strong> Ingeniero de Sistemas y Desarrollador Web Full Stack</strong>
-    de Santa Cruz, Bolivia 🇧🇴. Especializado en el desarrollo de aplicaciones web.
-  </p>
+    set:html={t("hero.description")}
+  />
   <nav class="flex flex-wrap gap-4 mt-8">
     <SocialPill href="mailto:pedro22enriqu@gmail.com">
       <MailIcon class="size-4" />
-      Contáctame
+      {t("hero.contactme")}
     </SocialPill>
     <SocialPill href="https://linkedin.com/in/pedro-characayo-7ba279174">
       <LinkedInIcon class="size-4" />
@@ -75,12 +83,7 @@ import GitHub from "./icons/GitHub.astro";
   }
 </style>
 
-<script>
-  const texts = [
-    "Hey, soy Pedro Enrique",
-    "Desarrollador Full Stack",
-    "Especialidad: Frontend",
-  ];
+<script define:vars={{ texts }}>
   const typingSpeed = 100;
   const delayBetweenTexts = 2000;
   let currentTextIndex = 0;
@@ -99,11 +102,9 @@ import GitHub from "./icons/GitHub.astro";
   };
 
   const deleteText = () => {
-    if (index >= 0 && typedTextElement) {
-      typedTextElement.innerHTML = texts[currentTextIndex].substring(0, index);
-      index--;
-      setTimeout(deleteText, typingSpeed / 2);
-    } else {
+    if (typedTextElement) {
+      typedTextElement.innerHTML = "";
+      index = 0;
       currentTextIndex = (currentTextIndex + 1) % texts.length;
       setTimeout(typeText, typingSpeed);
     }

@@ -7,6 +7,10 @@ import LinkButton from "./LinkButton.astro";
 import Aws from "./icons/Aws.astro";
 import Neon from "./icons/Neon.astro";
 import DrizzleOrm from "./icons/DrizzleOrm.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const TAGS = {
   NEXT: {
@@ -37,26 +41,23 @@ const TAGS = {
 };
 const PROJECTS = [
   {
-    title: "Jex - Marketplace de talento",
-    description:
-      "Plataforma de empleo para roles en tecnología. Con capacidad de búsqueda de empleo, creación de perfiles y publicación de ofertas de trabajo. Creada con Next.js y Tailwind CSS.",
+    title: "Jex - Multiple talents roles marketplace",
+    description: t("projects.jex.description"),
     link: "https://jex.global/",
     // github: "https://github.com/pheralb/svgl",
     image: "/projects/jex.webp",
     tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.AWS],
   },
   {
-    title: "Breallhomes - Publicación de propiedades inmobiliarias",
-    description:
-      "Plataforma de publicación de propiedades inmobiliarias. Con capacidad de búsqueda de propiedades, creación de perfiles y publicación de propiedades.  Frontend Creado Next.js y Tailwind CSS.",
+    title: "Breallhomes - Sell your home. Broker-Free.",
+    description: t("projects.brella.description"),
     link: "https://brellahomes.com",
     image: "/projects/brella.webp",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
-    title: "Boatmate - Administración de tienda de artículos náuticos",
-    description:
-      "Plataforma de administración de tienda de artículos náuticos. Con capacidad de gestión de productos, pedidos, clientes y pagos online. Creada con Next.js, Tailwind CSS, Neon y Drizzle ORM.",
+    title: "Boatmate - Theall-in-one boating platform",
+    description: t("projects.boatmate.description"),
     link: "https://boatmate.com",
     image: "/projects/boatmate.webp",
     tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.Neon, TAGS.Drizzle],

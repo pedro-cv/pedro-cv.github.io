@@ -1,12 +1,16 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import ExperienceItem from "./ExperienceItem.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const EXPERIENCE = [
   {
-    date: "Obctubre 2024",
-    title: "Principal Frontend Engineer",
+    date: t("experience.jex.date"),
+    title: t("experience.jex.title"),
     company: "Jex",
-    description:
-      "Desarrollo front-end de la plataforma principal, y encargado del desarrollo de productos outsourcing para clientes de la empresa, así como de la formación de nuevos empleados. Mejora en el desarrollo de los productos en escalabilidad y seguridad.",
+    description: t("experience.jex.description"),
     link: "https://jex.global",
   },
 ];

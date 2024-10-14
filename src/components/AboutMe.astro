@@ -1,6 +1,8 @@
 ---
-import GradientBgAnimate from "./ui/GradientBgAnimate.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const personalImageAlt = "Pedro Enrique";
 const ages = new Date().getFullYear() - 2001;
 ---
@@ -10,24 +12,8 @@ const ages = new Date().getFullYear() - 2001;
 >
   <div
     class="[&>p]:mb-4 [&>p>strong]:text-blue-500 dark:[&>p>strong]:text-blue-400 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
-  >
-    <p>
-      ¡Hola! Soy Pedro, tengo {ages} años y soy de Santa Cruz, Bolivia ʙο. Me gradué
-      como Ingeniero en Sistemas y me apasiona el
-      <strong> Desarrollo Web Frontend </strong>
-      y optimizar el rendimiento de las aplicaciones para brindar la mejor experiencia
-      al usuario.
-    </p>
-
-    <p>
-      Uno de mis mayores logros ha sido <strong
-        >colaborar en
-        <a class="font-bold hover:text-blue-500" href="https://jex.com">Jex</a>,
-      </strong>. donde participé en el desarrollo de una plataforma que conecta
-      desarrolladores con empresas, en simples palabras,
-      <strong> un martketplace de talento tecnológico. </strong>
-    </p>
-  </div>
+    set:html={t("about.description")}
+  />
 
   <!-- <img
     width="200"

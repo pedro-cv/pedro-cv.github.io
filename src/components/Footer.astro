@@ -1,5 +1,8 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer
@@ -14,29 +17,35 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        Ver código fuente en GitHub 🔥
+        {t("footer.viewSource")}
       </a>
     </span>
     <ul
       class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
     >
       <li>
-        <a href="/#experiencia" class="hover:underline me-4 md:me-6"
-          >Experiencia</a
+        <a href="/#experience" class="hover:underline me-4 md:me-6"
+          >{t("nav.experience")}</a
         >
       </li>
       <li>
-        <a href="/#proyectos" class="hover:underline me-4 md:me-6">Proyectos</a>
+        <a href="/#projects" class="hover:underline me-4 md:me-6">
+          {t("nav.projects")}
+        </a>
       </li>
       <li>
-        <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
+        <a href="/#about-me" class="hover:underline me-4 md:me-6">
+          {t("nav.about")}
+        </a>
       </li>
       <li>
         <a
-          id="contacto"
+          id="contact"
           href="mailto:pedro22enriqu@gmail.com"
-          class="hover:underline">Contacto</a
+          class="hover:underline"
         >
+          {t("nav.contact")}
+        </a>
       </li>
     </ul>
   </div>
