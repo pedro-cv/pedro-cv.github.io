@@ -1,5 +1,5 @@
 ---
-const currentYear = new Date().getFullYear();
+
 ---
 
 <footer
@@ -8,9 +8,14 @@ const currentYear = new Date().getFullYear();
   <div
     class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"
   >
-    <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90"
-      >Hecho en Astro y TailwindCSS © ${currentYear} Pedro Enrique. Todos los derechos
-      reservados.
+    <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90">
+      <a
+        href="https://github.com/tu-usuario/tu-repositorio"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ver código fuente en GitHub
+      </a>
     </span>
     <ul
       class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
