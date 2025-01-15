@@ -7,6 +7,8 @@ export const defaultLang = "en";
 
 export const ui = {
     en: {
+        'language.es': "Spanish",
+        'language.en': "English",
         'home.title': "Pedro's Portfolio, Fullstack Developer and by night a friend of the pillow 🌙",
         'home.description': "Hi, I'm Pedro, a frontend web developer who enjoys creating websites and web applications. Take a look at my portfolio and if you like what you see, let's talk!",
 
@@ -46,6 +48,8 @@ export const ui = {
         'components.experienceitem.view': "Learn more"
     },
     es: {
+        'language.es': "Español",
+        'language.en': "Inglés",
         'home.title': "Portafolio de Pedro, Desarrollador Fullstack y de noche amigo de la almohada 🌙",
         'home.description': "Hola, soy Pedro, un desarrollador web frontend que disfruta creando sitios web y aplicaciones web. Echa un vistazo a mi portafolio y si te gusta lo que ves, ¡hablemos!",
 
