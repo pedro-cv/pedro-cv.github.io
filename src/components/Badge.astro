@@ -1,10 +1,29 @@
-<div class="flex items-center ">
-<span class="relative inline-flex overflow-hidden rounded-full p-[1px]">
-  <span
-    class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)]"
-  ></span>
-  <div class="inline-flex items-center justify-center w-full px-3 py-1 text-sm text-green-800 bg-green-100 rounded-full cursor-pointer dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap">
-    <slot />
-  </div>
-</span>
+---
+import { cn } from "@/lib/utils";
+
+interface Props {
+  variant?: "default" | "secondary";
+}
+
+const { variant = "default" } = Astro.props;
+---
+
+<div class="flex items-center">
+  <span class="relative inline-flex overflow-hidden rounded-full p-[1px]">
+    {
+      variant === "default" && (
+        <span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)]" />
+      )
+    }
+    <div
+      class={cn(
+        "inline-flex items-center justify-center w-full px-3 py-1 text-sm rounded-full cursor-pointer dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap hover:font-medium transition-all duration-300 ease-in-out",
+        variant === "default"
+          ? "text-green-800 bg-green-100 hover:bg-green-200"
+          : "text-blue-800 bg-blue-200 hover:bg-blue-300/60"
+      )}
+    >
+      <slot />
+    </div>
+  </span>
 </div>

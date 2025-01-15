@@ -12,8 +12,8 @@ const t = useTranslations(lang);
 
 const texts = [t("hero.title1"), t("hero.title2"), t("hero.title3")];
 
-const title = "Bienvenido a mi página de Astro";
-const description = "Esta es una descripción que se usará más adelante.";
+const avalilable_to_worl = import.meta.env.AVAILABLE_TO_WORK;
+console.log(avalilable_to_worl);
 ---
 
 <div class="max-w-2xl">
@@ -27,16 +27,24 @@ const description = "Esta es una descripción que se usará más adelante.";
         alt={personalImageAlt}
       />
     </div>
-    <a
-      href="https://linkedin.com/in/pedro-characayo-7ba279174"
-      target="_blank"
-      rel="noopener"
-      class="flex items-center transition md:justify-center md:hover:scale-105"
-    >
-      <Badge>
-        {t("hero.badge")}
-      </Badge>
-    </a>
+    <div class="flex items-center transition md:justify-center">
+      <a
+        href="https://linkedin.com/in/pedro-characayo-7ba279174"
+        target="_blank"
+        rel="noopener"
+        class="transition duration-300 ease-in-out"
+      >
+        <Badge
+          variant={avalilable_to_worl === "true" ? "default" : "secondary"}
+        >
+          {
+            avalilable_to_worl === "true"
+              ? t("hero.badge_available")
+              : t("hero.badge_unavailable")
+          }
+        </Badge>
+      </a>
+    </div>
   </div>
   <div class="flex min-h-10">
     <h1

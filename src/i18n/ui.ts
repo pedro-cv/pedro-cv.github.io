@@ -15,7 +15,8 @@ export const ui = {
         'nav.contact': "Contact",
         'nav.about': "About me",
 
-        'hero.badge': "Available for work",
+        'hero.badge_available': "Available for work",
+        'hero.badge_unavailable': "Currently working",
         'hero.title1': "Hi, I'm Pedro",
         'hero.title2': "I'm a Fullstack Developer",
         'hero.title3': "Specialty: Frontend Development",
@@ -53,7 +54,8 @@ export const ui = {
         'nav.contact': "Contacto",
         'nav.about': "Sobre mí",
 
-        'hero.badge': "Disponible para trabajar",
+        'hero.badge_available': "Disponible para trabajar",
+        'hero.badge_unavailable': "Trabajando actualmente",
         'hero.title1': "Hola, soy Pedro",
         'hero.title2': "Soy un Desarrollador Fullstack",
         'hero.title3': "Especialidad: Desarrollo Frontend",
